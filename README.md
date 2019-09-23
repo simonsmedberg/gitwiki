@@ -34,12 +34,12 @@ git branch <branch-name>
 # This command creates the new branch and instantly checks out to that branch.
 git checkout -b <branch-name>
 ``` 
-Originally when connecting to a repository, you are in the `master` branch. If you are working in a repository with more branches you can easly switch between them by using the `git checkout` command.
+Originally when connecting to a repository, you are in the `master` branch. If you are working in a repository with more branches you can easly switch between them by using the `git checkout` command. 
 ```
 # Usage:
 git checkout <branch-name>
 ```
-*NOTE:* You can see all the available branches with the `git branch -a` command. 
+To see which branches that are available for you, you can issue the `git branch -a` command. 
 
 
 ## Commiting
