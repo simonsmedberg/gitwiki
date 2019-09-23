@@ -26,11 +26,23 @@ git remote add origin https://www.github.com/simonsmedberg/gitwiki.git
 ```
 
 ## Add branches and swapping between branches
-
+When working with alot of people in a project and using git, it is easy to push files that hasn't been update if you are only working in the `master` branch. So instead you can create a new branch with either the `git branch` command or the `git checkout -b` command.
+```
+# Usage:
+# This command only creates the new branch.
+git branch <branch-name>
+# This command creates the new branch and instantly checks out to that branch.
+git checkout -b <branch-name>
+``` 
+Originally when connecting to a repository, you are in the `master` branch. If you are working in a repository with more branches you can easly switch between them by using the `git checkout` command.
+```
+# Usage:
+git checkout <branch-name>
+```
+*NOTE:* You can see all the available branches with the `git branch -a` command. 
 
 
 ## Commiting
-
 
 ## Pushing
 
