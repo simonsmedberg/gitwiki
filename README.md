@@ -62,11 +62,11 @@ git push [origin | other-path] <branch-name>
 If you are more than one person working in a branch. You might need to update your local repository. This is done with the `git fetch` command.
 ```
 # Usage:
-git fetch origin <branch-name>
+git fetch [origin | other-path] <branch-name>
 ```
 ## Pulling
 
 ```
 # Usage:
-git pull origin <branch-name>
+git pull [origin | other-path] <branch-name>
 ```
