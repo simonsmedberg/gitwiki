@@ -56,5 +56,11 @@ git push origin <branch-name>
 ```
 
 ## Fetching
-
+```
+git fetch origin <branch-name>
+```
 ## Pulling
+
+```
+git pull origin <branch-name>
+```
