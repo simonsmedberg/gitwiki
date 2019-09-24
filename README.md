@@ -45,22 +45,28 @@ To see which branches that are available for you, you can issue the `git branch 
 ## Commiting
 When you are done with a piece of code and want to upload it to the repository you need to first commit the changes you have done `git commit`. Before you can commit i file/directory you need to add the files you want to commit, you can do this with `git add`.
 ```
+# Usage:
 git add [filename1, filename2, ..., filenameN | directory (includes .)]
 git commit -a -m "<message text here>"
 
 ```
 
 ## Pushing
+To upload the changes you have commited to the repository, you use the `git push` command.
 ```
-git push origin <branch-name>
+# Usage:
+git push [origin | other-path] <branch-name>
 ```
 
 ## Fetching
+If you are more than one person working in a branch. You might need to update your local repository. This is done with the `git fetch` command.
 ```
+# Usage:
 git fetch origin <branch-name>
 ```
 ## Pulling
 
 ```
+# Usage:
 git pull origin <branch-name>
 ```
