@@ -41,7 +41,6 @@ git checkout <branch-name>
 ```
 To see which branches that are available for you, you can issue the `git branch -a` command. 
 
-
 ## Commiting
 
 ## Pushing
