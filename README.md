@@ -41,7 +41,6 @@ git checkout <branch-name>
 ```
 To see which branches that are available for you, you can issue the `git branch -a` command. 
 
-
 ## Commiting
 When you are done with a piece of code and want to upload it to the repository you need to first commit the changes you have done `git commit`. Before you can commit i file/directory you need to add the files you want to commit, you can do this with `git add`.
 ```
