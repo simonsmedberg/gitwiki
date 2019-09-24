@@ -44,7 +44,16 @@ To see which branches that are available for you, you can issue the `git branch 
 
 ## Commiting
 
+```
+git add [filename | directory (includes .)]
+git commit -a -m "<message text here>"
+
+```
+
 ## Pushing
+```
+git push origin <branch-name>
+```
 
 ## Fetching
 
