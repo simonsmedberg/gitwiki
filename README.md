@@ -5,8 +5,21 @@ After installing git, you want to configure the git config. This is done with th
 What you want to do is set the `user.name`, which is the name of the user. This could be literal anything but adding your own name helps when you want to see who changed what and so forth. Then you want to set the `user.email`, which should be the email email of the user.
 ```
 # Usage:
-git config user.name <name>
-git config user.email <user@mail.com>
+git config [<file-option>] [type] [--show-origin] [-z|--null] name [value [value_regex]]
+git config [<file-option>] [type] --add name value
+git config [<file-option>] [type] --replace-all name value [value_regex]
+git config [<file-option>] [type] [--show-origin] [-z|--null] --get name [value_regex]
+git config [<file-option>] [type] [--show-origin] [-z|--null] --get-all name [value_regex]
+git config [<file-option>] [type] [--show-origin] [-z|--null] [--name-only] --get-regexp name_regex [value_regex]
+git config [<file-option>] [type] [-z|--null] --get-urlmatch name URL
+git config [<file-option>] --unset name [value_regex]
+git config [<file-option>] --unset-all name [value_regex]
+git config [<file-option>] --rename-section old_name new_name
+git config [<file-option>] --remove-section name
+git config [<file-option>] [--show-origin] [-z|--null] [--name-only] -l | --list
+git config [<file-option>] --get-color name [default]
+git config [<file-option>] --get-colorbool name [stdout-is-tty]
+git config [<file-option>] -e | --edit
 
 # Example
 git config user.name simonsmedberg
@@ -14,6 +27,15 @@ git config user.email simon.smedberg@hotmail.com
 ```  
 ## Initilize a local repository
 With git you can setup a local repository on your computer by issuing the command `git init`. This makes git recognize the cwd as a repository.
+```
+# Usage:
+git init [-q | --quiet] [--bare] [--template=<template_directory>]
+                 [--separate-git-dir <git dir>]
+                 [--shared[=<permissions>]] [directory]
+
+# Example:
+git init
+```
 
 ## Add remote repository
 When you want to connect your local repository to a remote repository on GitHub or GitLab or w/e you can do it with the `git remote` command.
