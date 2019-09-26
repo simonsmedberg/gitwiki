@@ -138,4 +138,6 @@ git help <command>
 git help commit
 ```
 
-$\fraq{1}{n} \dot \fraq{4}{n} + \sum^{n}_{i=1} = i $
+```latex
+\fraq{1}{n}
+```
