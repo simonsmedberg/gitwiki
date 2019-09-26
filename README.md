@@ -60,6 +60,8 @@ git remote [-v | --verbose] update [-p | --prune] [(<group> | <remote>)...]
 git remote add origin https://www.github.com/simonsmedberg/gitwiki.git
 ```
 
+**Note** - After doing this you might want to update your local repository with either `git fetch` or `git pull`.
+
 ## Add branches and swapping between branches
 When working with alot of people in a project and using git, it is easy to overwrite files that hasn't been correctly updated if you are only working in the `master` branch. So instead you can create a new branch with either the `git branch` command or the `git checkout -b` command.
 ```
