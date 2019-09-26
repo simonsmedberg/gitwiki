@@ -26,13 +26,18 @@ git remote add origin https://www.github.com/simonsmedberg/gitwiki.git
 ```
 
 ## Add branches and swapping between branches
-When working with alot of people in a project and using git, it is easy to push files that hasn't been update if you are only working in the `master` branch. So instead you can create a new branch with either the `git branch` command or the `git checkout -b` command.
+When working with alot of people in a project and using git, it is easy to overwrite files that hasn't been correctly updated if you are only working in the `master` branch. So instead you can create a new branch with either the `git branch` command or the `git checkout -b` command.
 ```
 # Usage:
 # This command only creates the new branch.
 git branch <branch-name>
 # This command creates the new branch and instantly checks out to that branch.
 git checkout -b <branch-name>
+
+# Example:
+git branch newbranch
+--
+git checkout -b newbranch
 ``` 
 Originally when connecting to a repository, you are in the `master` branch. If you are working in a repository with more branches you can easly switch between them by using the `git checkout` command. 
 ```
@@ -44,7 +49,7 @@ To see which branches that are available for you, you can issue the `git branch 
 
 ## Commiting
 When you are done with a piece of code and want to upload it to the repository you need to first commit the changes you have made `git commit`. Before you can commit i file/directory you need to add the files you want to commit, you can do this with `git add`.
-```
+```python
 # Usage:
 git add [filename1, filename2, ..., filenameN | directory (includes .)]
 git commit -m "<message text here>"
@@ -85,6 +90,22 @@ git pull [origin | other-path] <branch-name>
 git pull origin master
 ```
 
+## Merge
+When a branch is completed and you want to merge it with another one you can do it in two ways, either the `git merge` or with a sequence of commands.
+
+```
+# Usage:
+# HEAD is "where" you are, in other words the branch you are in.
+git merge <branch-you-want-to-merge-to-HEAD>
+
+
+# Other sequence would be
+git pull origin <branch>
+git add .
+git commit -a -m "Merging branch1 with branch2"
+git push origin <branch>
+```
+
 ## Misc
 
 ### Status
@@ -97,8 +118,11 @@ If you have initilized a local repository you can find information about every p
 You wanna see the difference between commits you can simply write `git diff` and it will show you the difference for each commit that has been made.
 
 ### Help!
-Use the `git help` command for more informationa about how to use a command.
+Use the `git help` command for more informationa about how to use a command. It kinda works like manpages in linux.
 ```
 # Usage:
 git help <command>
+
+# Example
+git help commit
 ```
