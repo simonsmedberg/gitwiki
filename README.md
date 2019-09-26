@@ -84,7 +84,7 @@ To see which branches that are available for you, you can issue the `git branch 
 
 
 ## Commiting
-When you are done with a piece of code and want to upload it to the repository you need to first commit the changes you have made `git commit`. Before you can commit i file/directory you need to add the files you want to commit, you can do this with `git add`.
+Before commiting your changes you need to add the untracked files an index so that git knows which files should be commited. You do this with the `git add` command.
 ```
 # Usage:
 git add [--verbose | -v] [--dry-run | -n] [--force | -f] [--interactive | -i] [--patch | -p]
@@ -95,7 +95,7 @@ git add [--verbose | -v] [--dry-run | -n] [--force | -f] [--interactive | -i] [-
 # Example:
 git add file1 file2 file3
 ```
-
+When all the files that you want to commit has been added, you use the `git commit` command to commit the changes.
 ```
 git commit [-a | --interactive | --patch] [-s] [-v] [-u<mode>] [--amend]
                   [--dry-run] [(-c | -C | --fixup | --squash) <commit>]
@@ -122,6 +122,7 @@ git push [--all | --mirror | --tags] [--follow-tags] [--atomic] [-n | --dry-run]
 # Example:
 git push origin master 
 ```
+**Notis** - Before pushing you need to make sure that you don't overwrite a file. 
 
 ## Fetching
 With the `git fetch` command you can update the local repository's knowledge of which files and branches exists on the remote one. 
@@ -171,18 +172,45 @@ git push origin <branch>
 
 ### Status
 Checking files status, e.g. untracked, is done with the simple command `git status`.
+```
+# Usage:
+git status [<options>...] [--] [<pathspec>...]
+
+# Example:
+git status
+```
 
 ### Log
 If you have initilized a local repository you can find information about every push you have made with the `git log` command.
 
+```
+# Usage:
+git log [<options>] [<revision range>] [[--] <path>...]
+
+# Example:
+git log
+```
+
 ### Diff
 You wanna see the difference between commits you can simply write `git diff` and it will show you the difference for each commit that has been made.
+```
+# Usage:
+git diff [options] [<commit>] [--] [<path>...]
+git diff [options] --cached [<commit>] [--] [<path>...]
+git diff [options] <commit> <commit> [--] [<path>...]
+git diff [options] <blob> <blob>
+git diff [options] [--no-index] [--] <path> <path>
+
+# Example:
+git diff
+```
 
 ### Help!
 Use the `git help` command for more informationa about how to use a command. It kinda works like manpages in linux.
 ```
 # Usage:
-git help <command>
+git help [-a|--all] [-g|--guide]
+          [-i|--info|-m|--man|-w|--web] [COMMAND|GUIDE]
 
 # Example
 git help commit
