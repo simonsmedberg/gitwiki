@@ -50,9 +50,20 @@ To see which branches that are available for you, you can issue the `git branch 
 ## Commiting
 When you are done with a piece of code and want to upload it to the repository you need to first commit the changes you have made `git commit`. Before you can commit i file/directory you need to add the files you want to commit, you can do this with `git add`.
 ```python
+
 # Usage:
-git add [filename1, filename2, ..., filenameN | directory (includes .)]
-git commit -m "<message text here>"
+git add [--verbose | -v] [--dry-run | -n] [--force | -f] [--interactive | -i] [--patch | -p]
+                 [--edit | -e] [--[no-]all | --[no-]ignore-removal | [--update | -u]]
+                 [--intent-to-add | -N] [--refresh] [--ignore-errors] [--ignore-missing] [--renormalize]
+                 [--chmod=(+|-)x] [--] [<pathspec>...]
+
+
+git commit [-a | --interactive | --patch] [-s] [-v] [-u<mode>] [--amend]
+                  [--dry-run] [(-c | -C | --fixup | --squash) <commit>]
+                  [-F <file> | -m <msg>] [--reset-author] [--allow-empty]
+                  [--allow-empty-message] [--no-verify] [-e] [--author=<author>]
+                  [--date=<date>] [--cleanup=<mode>] [--[no-]status]
+                  [-i | -o] [-S[<keyid>]] [--] [<file>...]
 
 # Example:
 git add file1 file2 file3
@@ -126,3 +137,5 @@ git help <command>
 # Example
 git help commit
 ```
+
+$\fraq{1}{n} \dot \fraq{4}{n} + \sum^{n}_{i=1} = i $
