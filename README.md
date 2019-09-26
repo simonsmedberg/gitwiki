@@ -41,31 +41,64 @@ git checkout <branch-name>
 ```
 To see which branches that are available for you, you can issue the `git branch -a` command. 
 
+
 ## Commiting
-When you are done with a piece of code and want to upload it to the repository you need to first commit the changes you have done `git commit`. Before you can commit i file/directory you need to add the files you want to commit, you can do this with `git add`.
+When you are done with a piece of code and want to upload it to the repository you need to first commit the changes you have made `git commit`. Before you can commit i file/directory you need to add the files you want to commit, you can do this with `git add`.
 ```
 # Usage:
 git add [filename1, filename2, ..., filenameN | directory (includes .)]
-git commit -a -m "<message text here>"
+git commit -m "<message text here>"
 
+# Example:
+git add file1 file2 file3
+git commit -m "Updated file1, file2 and file3 with the new function."
 ```
 
 ## Pushing
-To upload the changes you have commited to the repository, you use the `git push` command.
+To upload the changes you have commited to the remote repository, you use the `git push` command.
 ```
 # Usage:
 git push [origin | other-path] <branch-name>
+
+# Example
+git push origin master 
 ```
 
 ## Fetching
-If you are more than one person working in a branch. You might need to update your local repository. This is done with the `git fetch` command.
+With the `git fetch` command you can update the local repository's knowledge of which files and branches exists on the remote one. 
 ```
 # Usage:
 git fetch [origin | other-path] <branch-name>
-```
-## Pulling
 
+# Example:
+git fetch origin master
+```
+After this you should be able to switch between branches (see the branches section) and be able to see their files with `ls` command.
+
+## Pulling
+If you want to download a file to work with in a repository you can use the `git pull` command to download the content of a branch.
 ```
 # Usage:
 git pull [origin | other-path] <branch-name>
+
+# Example, download copy from master branch.
+git pull origin master
+```
+
+## Misc
+
+### Status
+Checking files status, e.g. untracked, is done with the simple command `git status`.
+
+### Log
+If you have initilized a local repository you can find information about every push you have made with the `git log` command.
+
+### Diff
+You wanna see the difference between commits you can simply write `git diff` and it will show you the difference for each commit that has been made.
+
+### Help!
+Use the `git help` command for more informationa about how to use a command.
+```
+# Usage:
+git help <command>
 ```
