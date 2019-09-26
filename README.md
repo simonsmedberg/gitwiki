@@ -49,8 +49,7 @@ To see which branches that are available for you, you can issue the `git branch 
 
 ## Commiting
 When you are done with a piece of code and want to upload it to the repository you need to first commit the changes you have made `git commit`. Before you can commit i file/directory you need to add the files you want to commit, you can do this with `git add`.
-```python
-
+```bash
 # Usage:
 git add [--verbose | -v] [--dry-run | -n] [--force | -f] [--interactive | -i] [--patch | -p]
                  [--edit | -e] [--[no-]all | --[no-]ignore-removal | [--update | -u]]
@@ -136,8 +135,4 @@ git help <command>
 
 # Example
 git help commit
-```
-
-```latex
-\fraq{1}{n}
 ```
