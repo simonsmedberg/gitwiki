@@ -1,7 +1,7 @@
 # Git commands -
 
 ## Setting up the git config
-After installing git, you want to configure the git config. This is done with the simple `git config` command.
+After installing git, you want to configure the git config. You can do this with the simple `git config` command.
 What you want to do is set the `user.name`, which is the name of the user. This could be literal anything but adding your own name helps when you want to see who changed what and so forth. Then you want to set the `user.email`, which should be the email email of the user.
 ```
 # Usage:
