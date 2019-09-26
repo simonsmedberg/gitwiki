@@ -19,7 +19,20 @@ With git you can setup a local repository on your computer by issuing the comman
 When you want to connect your local repository to a remote repository on GitHub or GitLab or w/e you can do it with the `git remote` command.
 ```
 # Usage:
-git remote add origin https://yourgit.com/account/repository.git
+git remote [-v | --verbose]
+git remote add [-t <branch>] [-m <master>] [-f] [--[no-]tags] [--mirror=<fetch|push>] <name> <url>
+git remote rename <old> <new>
+git remote remove <name>
+git remote set-head <name> (-a | --auto | -d | --delete | <branch>)
+git remote set-branches [--add] <name> <branch>...
+git remote get-url [--push] [--all] <name>
+git remote set-url [--push] <name> <newurl> [<oldurl>]
+git remote set-url --add [--push] <name> <newurl>
+git remote set-url --delete [--push] <name> <url>
+git remote [-v | --verbose] show [-n] <name>...
+git remote prune [-n | --dry-run] <name>...
+git remote [-v | --verbose] update [-p | --prune] [(<group> | <remote>)...]
+
 
 # Example (this repository)
 git remote add origin https://www.github.com/simonsmedberg/gitwiki.git
@@ -29,14 +42,37 @@ git remote add origin https://www.github.com/simonsmedberg/gitwiki.git
 When working with alot of people in a project and using git, it is easy to overwrite files that hasn't been correctly updated if you are only working in the `master` branch. So instead you can create a new branch with either the `git branch` command or the `git checkout -b` command.
 ```
 # Usage:
-# This command only creates the new branch.
-git branch <branch-name>
-# This command creates the new branch and instantly checks out to that branch.
-git checkout -b <branch-name>
+git branch [--color[=<when>] | --no-color] [-r | -a]
+               [--list] [-v [--abbrev=<length> | --no-abbrev]]
+               [--column[=<options>] | --no-column] [--sort=<key>]
+               [(--merged | --no-merged) [<commit>]]
+               [--contains [<commit]] [--no-contains [<commit>]]
+               [--points-at <object>] [--format=<format>] [<pattern>...]
+git branch [--track | --no-track] [-l] [-f] <branchname> [<start-point>]
+git branch (--set-upstream-to=<upstream> | -u <upstream>) [<branchname>]
+git branch --unset-upstream [<branchname>]
+git branch (-m | -M) [<oldbranch>] <newbranch>
+git branch (-c | -C) [<oldbranch>] <newbranch>
+git branch (-d | -D) [-r] <branchname>...
+git branch --edit-description [<branchname>]
 
 # Example:
+# This command only creates the new branch.
 git branch newbranch
---
+```
+
+```
+# Usage:
+git checkout [-q] [-f] [-m] [<branch>]
+git checkout [-q] [-f] [-m] --detach [<branch>]
+git checkout [-q] [-f] [-m] [--detach] <commit>
+git checkout [-q] [-f] [-m] [[-b|-B|--orphan] <new_branch>] [<start_point>]
+git checkout [-f|--ours|--theirs|-m|--conflict=<style>] [<tree-ish>] [--] <paths>...
+git checkout [<tree-ish>] [--] <pathspec>...
+git checkout (-p|--patch) [<tree-ish>] [--] [<paths>...]
+
+# Example:
+# This command creates the new branch and instantly checks out to that branch.
 git checkout -b newbranch
 ``` 
 Originally when connecting to a repository, you are in the `master` branch. If you are working in a repository with more branches you can easly switch between them by using the `git checkout` command. 
@@ -49,14 +85,18 @@ To see which branches that are available for you, you can issue the `git branch 
 
 ## Commiting
 When you are done with a piece of code and want to upload it to the repository you need to first commit the changes you have made `git commit`. Before you can commit i file/directory you need to add the files you want to commit, you can do this with `git add`.
-```bash
+```
 # Usage:
 git add [--verbose | -v] [--dry-run | -n] [--force | -f] [--interactive | -i] [--patch | -p]
                  [--edit | -e] [--[no-]all | --[no-]ignore-removal | [--update | -u]]
                  [--intent-to-add | -N] [--refresh] [--ignore-errors] [--ignore-missing] [--renormalize]
                  [--chmod=(+|-)x] [--] [<pathspec>...]
 
+# Example:
+git add file1 file2 file3
+```
 
+```
 git commit [-a | --interactive | --patch] [-s] [-v] [-u<mode>] [--amend]
                   [--dry-run] [(-c | -C | --fixup | --squash) <commit>]
                   [-F <file> | -m <msg>] [--reset-author] [--allow-empty]
@@ -65,7 +105,6 @@ git commit [-a | --interactive | --patch] [-s] [-v] [-u<mode>] [--amend]
                   [-i | -o] [-S[<keyid>]] [--] [<file>...]
 
 # Example:
-git add file1 file2 file3
 git commit -m "Updated file1, file2 and file3 with the new function."
 ```
 
@@ -73,9 +112,14 @@ git commit -m "Updated file1, file2 and file3 with the new function."
 To upload the changes you have commited to the remote repository, you use the `git push` command.
 ```
 # Usage:
-git push [origin | other-path] <branch-name>
+git push [--all | --mirror | --tags] [--follow-tags] [--atomic] [-n | --dry-run] [--receive-pack=<git-receive-pack>]
+                  [--repo=<repository>] [-f | --force] [-d | --delete] [--prune] [-v | --verbose]
+                  [-u | --set-upstream] [--push-option=<string>]
+                  [--[no-]signed|--signed=(true|false|if-asked)]
+                  [--force-with-lease[=<refname>[:<expect>]]]
+                  [--no-verify] [<repository> [<refspec>...]]
 
-# Example
+# Example:
 git push origin master 
 ```
 
@@ -83,7 +127,10 @@ git push origin master
 With the `git fetch` command you can update the local repository's knowledge of which files and branches exists on the remote one. 
 ```
 # Usage:
-git fetch [origin | other-path] <branch-name>
+git fetch [<options>] [<repository> [<refspec>...]]
+git fetch [<options>] <group>
+git fetch --multiple [<options>] [(<repository> | <group>)...]
+git fetch --all [<options>]
 
 # Example:
 git fetch origin master
@@ -94,9 +141,9 @@ After this you should be able to switch between branches (see the branches secti
 If you want to download a file to work with in a repository you can use the `git pull` command to download the content of a branch.
 ```
 # Usage:
-git pull [origin | other-path] <branch-name>
+git pull [options] [<repository> [<refspec>...]]
 
-# Example, download copy from master branch.
+# Example, download copy from master branch:
 git pull origin master
 ```
 
@@ -105,8 +152,12 @@ When a branch is completed and you want to merge it with another one you can do 
 
 ```
 # Usage:
-# HEAD is "where" you are, in other words the branch you are in.
-git merge <branch-you-want-to-merge-to-HEAD>
+git merge [-n] [--stat] [--no-commit] [--squash] [--[no-]edit]
+               [-s <strategy>] [-X <strategy-option>] [-S[<keyid>]]
+               [--[no-]allow-unrelated-histories]
+               [--[no-]rerere-autoupdate] [-m <msg>] [<commit>...]
+git merge --abort
+git merge --continue
 
 
 # Other sequence would be
