@@ -62,6 +62,24 @@ git remote add origin https://www.github.com/simonsmedberg/gitwiki.git
 
 **Note** - After doing this you might want to update your local repository with either `git fetch` or `git pull`.
 
+## Clone a repository
+Instead of using the `git remote` command to add a remote repository you can use the `git clone` command to clone a repository to newly created directory. This automatically creates remote-tracking branches for each branch cloned in the cloned repository.
+
+```
+git clone [--template=<template_directory>]
+                 [-l] [-s] [--no-hardlinks] [-q] [-n] [--bare] [--mirror]
+                 [-o <name>] [-b <name>] [-u <upload-pack>] [--reference <repository>]
+                 [--dissociate] [--separate-git-dir <git dir>]
+                 [--depth <depth>] [--[no-]single-branch] [--no-tags]
+                 [--recurse-submodules[=<pathspec>]] [--[no-]shallow-submodules]
+                 [--jobs <n>] [--] <repository> [<directory>]
+
+# Example:
+git clone https://www.github.com/simonsmedberg/gitwiki.git
+```
+
+**Note** - After you've successfully cloned a repository you can update your remote-tracking branches with `git fetch` command without arguments and to merge the remote master branch into the current master branch you use `git pull` command without arguments. 
+
 ## Add branches and swapping between branches
 When working with alot of people in a project and using git, it is easy to overwrite files that hasn't been correctly updated if you are only working in the `master` branch. So instead you can create a new branch with either the `git branch` command or the `git checkout -b` command.
 ```
@@ -84,6 +102,9 @@ git branch --edit-description [<branchname>]
 # This command only creates the new branch.
 git branch newbranch
 ```
+
+**Note** - If you want to see all the branches you have available you can use the `git branch -a` command or if you want to see all the remote branches you can use the `git branch -r` command.
+
 
 ```
 # Usage:
@@ -117,7 +138,10 @@ git add [--verbose | -v] [--dry-run | -n] [--force | -f] [--interactive | -i] [-
                  [--chmod=(+|-)x] [--] [<pathspec>...]
 
 # Example:
-git add file1 file2 file3
+git add file1 file2 file3 ... fileN
+
+# Adding all files in the CWD
+git add . 
 ```
 When all the files that you want to commit has been added, you use the `git commit` command to commit the changes.
 ```
@@ -146,7 +170,7 @@ git push [--all | --mirror | --tags] [--follow-tags] [--atomic] [-n | --dry-run]
 # Example:
 git push origin master 
 ```
-**Notis** - Before pushing you need to make sure that you don't overwrite a file. 
+**Note** - Before pushing you need to make sure that you don't overwrite a file. 
 
 ## Fetching
 With the `git fetch` command you can update the local repository's knowledge of which files and branches exists on the remote one. 
